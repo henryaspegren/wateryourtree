@@ -20,3 +20,9 @@ def detail(request, location_url):
 
   context = {'location': location}
   return render(request, 'core/detail.html', context)
+
+def create_location(request):
+  if request.method == 'POST':
+    location = Location(name=request.POST['Location'])
+    location.save()
+  return render(request, 'core/create_location.html', {})

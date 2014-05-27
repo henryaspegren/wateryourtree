@@ -6,7 +6,7 @@ import datetime
 # Create your models here.
 class Location(models.Model):
   url = models.CharField(max_length=100)
-  name = models.CharField(max_length=50)
+  name = models.CharField(max_length=50, unique=True)
   hit_count = models.IntegerField(default=0)
   date_created = models.DateTimeField('date created', default=datetime.datetime.now())
 
