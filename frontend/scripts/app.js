@@ -6,9 +6,15 @@ angular.module("Fertilizer", [])
   }])
   .controller('Location', function ($scope, $http){
     $scope.getLocation = function() {
-      $http.get("..core/TG9jYXRpb24=/json")
+      $http.get("../core/TG9jYXRpb24=/json")
         .success(function (data, status, headers, config) {
           $scope.location = data;
+        });
+    };
+    $scope.getLocations = function () {
+      $http.get("../core/list")
+        .success(function (data, status, headers, config) {
+          $scope.locations = data;
         });
     };
     $scope.createLocation = function() {
