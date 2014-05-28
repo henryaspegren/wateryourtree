@@ -2,11 +2,29 @@
 <html>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="scripts/libs/qrcode/lib/qrcode.min.js"></script>
+  <script src="scripts/libs/angular-qr/angular-qr.min.js"></script>
   <script src="scripts/app.js"></script>
 </head>
 <body ng-app="Fertilizer">
-  <div ng-controller="Location" ng-init="getLocation()">
-    {{location}}
+ <div ng-controller="Location">
+  <div>
+    <div ng-if="!selected_location" ng-init="get_locations()">
+      <ul>
+        <li ng-repeat="location in locations">
+          <a href ng-click="select_location(location)">
+            {{location.name}} -  Hits: {{location.hit_count}}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div ng-if="selected_location">
+      {{location}}
+      <br />
+      <qr text="qr_url"></qr>
+    </div>
+  </div>
   </div>
 </body>
 </html>
