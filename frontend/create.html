@@ -3,8 +3,8 @@
 <head>
 </head>
 <body ng-app="Fertilizer">
-  <div>
-    <form ng-submit="createLocation()" method="post">
+  <div ng-controller="Location">
+    <form ng-submit="create_location()" method="post">
       <label>Location Name: <input type="text" ng-model="location"/></label>
       <button type="submit">Create</button>
     </form>
