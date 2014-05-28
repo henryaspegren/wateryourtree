@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 
 from Fertilizer.utils import render_location, render_locations
@@ -22,13 +22,14 @@ def list(request):
   locations = Location.objects.order_by('-date_created')
   return render_locations(locations)
 
-def detail(request, location_url):
+def hit(request, location_url):
   location = get_object_or_404(Location, url=location_url)
 
   me = hc.get_user("mgeist@betterworks.com")
   me.message("(poo) - " + location.name)
 
-  context = {'location': location}
+  location.hit_count += 1
+  location.save()
 
 def create_location(request):
   if request.method == 'POST':
