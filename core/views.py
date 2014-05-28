@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 
+from Fertilizer.utils import render_location, render_locations
 from core.models import Location
 
 import hypchat
@@ -12,6 +14,14 @@ def index(request):
   context = {'locations': locations}
   return render(request, 'core/index.html', context)
 
+def detail_json(request, location_url):
+  location = get_object_or_404(Location, url=location_url)
+  return render_location(location)
+
+def list(request):
+  locations = Location.objects.order_by('-date_created')
+  return render_locations(locations)
+
 def detail(request, location_url):
   location = get_object_or_404(Location, url=location_url)
 
@@ -19,10 +29,8 @@ def detail(request, location_url):
   me.message("(poo) - " + location.name)
 
   context = {'location': location}
-  return render(request, 'core/detail.html', context)
 
 def create_location(request):
   if request.method == 'POST':
     location = Location(name=request.POST['Location'])
     location.save()
-  return render(request, 'core/create_location.html', {})
