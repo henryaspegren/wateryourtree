@@ -1,5 +1,5 @@
-from json import dumps
 from django.http import HttpResponse
+from json import dumps
 
 def render_location(location):
   json_location = dumps(location.to_json(), indent=2, separators=(',', ': '))

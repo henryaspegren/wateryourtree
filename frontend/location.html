@@ -7,9 +7,14 @@
   <script src="scripts/app.js"></script>
 </head>
 <body ng-app="Fertilizer">
- <div ng-controller="Location">
-  <div>
+  <div ng-controller="Location">
+
     <div ng-if="!selected_location" ng-init="get_locations()">
+      <form ng-submit="create_location(new_location)" method="post">
+        <label>Location Name: <input type="text" ng-model="new_location"/></label>
+        <button type="submit">Create</button>
+      </form>
+
       <ul>
         <li ng-repeat="location in locations">
           <a href ng-click="select_location(location)">
@@ -24,7 +29,6 @@
       <br />
       <qr text="qr_url"></qr>
     </div>
-  </div>
   </div>
 </body>
 </html>

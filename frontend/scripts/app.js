@@ -1,7 +1,5 @@
 var fertilizer = angular.module("Fertilizer", ['ja.qr'])
   .config(['$httpProvider', function($httpProvider) {
-    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
   }])
   .controller('Location', function ($scope, $http){
@@ -17,15 +15,15 @@ var fertilizer = angular.module("Fertilizer", ['ja.qr'])
           $scope.locations = data;
         });
     };
-    $scope.create_location = function() {
-      $http.post("../core/create/", "Location=" + $scope.location)
+    $scope.create_location = function(name) {
+      $http.post("../core/create/", "Location=" + name)
         .success(function (data, status, headers, config) {
-          console.log("success");
+          window.location = "/fertilizer/location.html";
         });
     };
     $scope.select_location = function(location) {
       $scope.selected_location =  true;
       $scope.location = location;
-      $scope.qr_url = "http://127.0.0.1:8000/core/hit/" + $scope.location.url;
+      $scope.qr_url = document.domain + "/core/hit/" + $scope.location.url;
     };
 });

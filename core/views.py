@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 
 from Fertilizer.utils import render_location, render_locations
@@ -6,13 +7,7 @@ from core.models import Location
 
 import hypchat
 
-hc = hypchat.HypChat("HMKmVOnIKudLTskiuZfosszhed4cRX4S9TeFb3s2")
-
-# Create your views here.
-def index(request):
-  locations = Location.objects.order_by('-date_created')
-  context = {'locations': locations}
-  return render(request, 'core/index.html', context)
+hc = hypchat.HypChat('HMKmVOnIKudLTskiuZfosszhed4cRX4S9TeFb3s2')
 
 def detail_json(request, location_url):
   location = get_object_or_404(Location, url=location_url)
@@ -26,12 +21,14 @@ def hit(request, location_url):
   location = get_object_or_404(Location, url=location_url)
 
   me = hc.get_user("mgeist@betterworks.com")
-  me.message("(poo) - " + location.name)
+  me.message('(poo) - ' + location.name)
 
   location.hit_count += 1
   location.save()
 
+@csrf_exempt
 def create_location(request):
   if request.method == 'POST':
     location = Location(name=request.POST['Location'])
     location.save()
+    return redirect('/fertilizer/location.html')
