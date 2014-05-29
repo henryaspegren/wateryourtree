@@ -80,3 +80,7 @@ STATIC_URL = '/fertilizer/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'frontend'),
 )
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'Fertilizer/templates')
+)

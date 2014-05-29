@@ -9,6 +9,9 @@ import hypchat
 
 hc = hypchat.HypChat('HMKmVOnIKudLTskiuZfosszhed4cRX4S9TeFb3s2')
 
+def index(request):
+  return render(request, 'index.html')
+
 def detail_json(request, location_url):
   location = get_object_or_404(Location, url=location_url)
   return render_location(location)
