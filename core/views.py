@@ -4,10 +4,10 @@ from django.http import HttpResponse
 
 from Fertilizer.utils import render_location, render_locations
 from core.models import Location
-
+import datetime
 import hypchat
 
-hc = hypchat.HypChat('HMKmVOnIKudLTskiuZfosszhed4cRX4S9TeFb3s2')
+hc = hypchat.HypChat('iWtfWzxBZBgla9Q5nl19WJKTTiZh3nTEoyOIAMfx')
 
 def index(request):
   return render(request, 'index.html')
@@ -23,15 +23,18 @@ def list(request):
 def hit(request, location_url):
   location = get_object_or_404(Location, url=location_url)
 
-  me = hc.get_user("mgeist@betterworks.com")
-  me.message('(poo) - ' + location.name)
+  me = hc.get_user("henry@betterworks.com")
+  #me.message('(poo) - ' + location.name)
 
   location.hit_count += 1
   location.save()
+  data = {'location':str(location), 'hits':str(location.hit_count)}
+
+  return render(request, 'landing.html', data)
 
 @csrf_exempt
 def create_location(request):
   if request.method == 'POST':
     location = Location(name=request.POST['Location'])
     location.save()
-    return redirect('/fertilizer/location.html')
+    return redirect('/fertilizer/templates/creating.html')

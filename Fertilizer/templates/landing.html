@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Tree Has Been Watered!</title>
+</head>
+  {% load staticfiles %}
+  <!-- Bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/landing_style.css' %}"/>
+</head>
+<body>
+  <div class="centered">
+    <head><p><b>The tree has been watered</b></p></head><br>
+    <img src="{% static 'images/rain.png' %}"><br>
+    <img src="{% static 'images/peachtree.gif' %}">
+    <br>
+    <br>
+    <u> Location of this tree:</u><b> {{ location }} </b> <br>
+    <u> Number of hits:</u><b> {{ hits }} </b>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

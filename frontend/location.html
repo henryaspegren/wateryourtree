@@ -10,11 +10,7 @@
   <div ng-controller="Location">
 
     <div ng-if="!selected_location" ng-init="get_locations()">
-      <form ng-submit="create_location(new_location)" method="post">
-        <label>Location Name: <input type="text" ng-model="new_location"/></label>
-        <button type="submit">Create</button>
-      </form>
-
+      <p><b><font size="16"> The Forest</font></b></p>
       <ul>
         <li ng-repeat="location in locations">
           <a href ng-click="select_location(location)">
@@ -22,10 +18,16 @@
           </a>
         </li>
       </ul>
+      <form ng-submit="create_location(new_location)" method="post">
+        <label>Plant a Tree: <input type="text" ng-model="new_location"/></label>
+        <button type="submit">Create</button>
+      </form>
+
     </div>
 
     <div ng-if="selected_location">
-      {{location}}
+      {{location.url}}
+      {{location.name}}
       <br />
       <qr text="qr_url"></qr>
     </div>
