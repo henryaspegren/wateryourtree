@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head ng-app='fertilizer' ng-controller="locationsController">
+<html ng-app='fertilizer' ng-controller="locationsController">
+<head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
   <script src="scripts/libs/qrcode/lib/qrcode.min.js"></script>
   <script src="scripts/libs/angular-qr/angular-qr.min.js"></script>
@@ -10,11 +10,6 @@
 <div ng-view></div>
   <hr />
 
-  <pre>$location.path() = {{$location.path()}}</pre>
-  <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
-  <pre>$route.current.params = {{$route.current.params}}</pre>
-  <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
-  <pre>$routeParams = {{$routeParams}}</pre>
 THIS IS THE CREATE PAGE
 {{test}}
 </body>

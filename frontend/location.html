@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='fertilizer' ng-controller="locationsController">
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
   <script src="scripts/libs/qrcode/lib/qrcode.min.js"></script>
   <script src="scripts/libs/angular-qr/angular-qr.min.js"></script>
-  <script src="scripts/app.js"></script>
+  <script src="scripts/controller.js"></script>
 </head>
-{{test}}
-<div ng-view> {{location.name}}</div>
 <div ng-init="get_locations()">
   <p><b><font size="16"> The Forest</font></b></p>
     <ul>
@@ -22,8 +20,4 @@
         <button type="submit">Create</button>
       </form>
   </div>
-<body ng-controller="locationsController">
-
-{{test}}
-</body>
 </html>
