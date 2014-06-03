@@ -37,4 +37,4 @@ def create_location(request):
   if request.method == 'POST':
     location = Location(name=request.POST['Location'])
     location.save()
-    return redirect('/fertilizer/templates/creating.html')
+    return render('/fertilizer/templates/create.html')

@@ -6,31 +6,24 @@
   <script src="scripts/libs/angular-qr/angular-qr.min.js"></script>
   <script src="scripts/app.js"></script>
 </head>
-<body ng-app="Fertilizer">
-  <div ng-controller="Location">
-
-    <div ng-if="!selected_location" ng-init="get_locations()">
-      <p><b><font size="16"> The Forest</font></b></p>
-      <ul>
-        <li ng-repeat="location in locations">
-          <a href ng-click="select_location(location)">
-            {{location.name}} -  Hits: {{location.hit_count}}
-          </a>
-        </li>
-      </ul>
-      <form ng-submit="create_location(new_location)" method="post">
+{{test}}
+<div ng-view> {{location.name}}</div>
+<div ng-init="get_locations()">
+  <p><b><font size="16"> The Forest</font></b></p>
+    <ul>
+      <li ng-repeat="location in locations">
+        <a href ng-click="select_location(location)">
+          {{location.name}} -  Hits: {{location.hit_count}}
+        </a>
+      </li>
+    </ul>
+          <form ng-submit="create_location(new_location)" method="post">
         <label>Plant a Tree: <input type="text" ng-model="new_location"/></label>
         <button type="submit">Create</button>
       </form>
-
-    </div>
-
-    <div ng-if="selected_location">
-      {{location.url}}
-      {{location.name}}
-      <br />
-      <qr text="qr_url"></qr>
-    </div>
   </div>
+<body ng-controller="locationsController">
+
+{{test}}
 </body>
 </html>
