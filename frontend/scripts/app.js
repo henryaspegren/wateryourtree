@@ -7,6 +7,7 @@ var fertilizer = angular.module("Fertilizer", ['ja.qr'])
     $scope.qr_url = "";
 
     $scope.selected_location = false;
+    $scope.created = false;
     $scope.location = "";
 
     $scope.get_locations = function () {
@@ -20,6 +21,7 @@ var fertilizer = angular.module("Fertilizer", ['ja.qr'])
         .success(function (data, status, headers, config) {
           window.location = "/fertilizer/location.html";
         });
+      $scope.selected_location = false;
     };
     $scope.select_location = function(location) {
       $scope.selected_location =  true;

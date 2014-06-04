@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.index),
     url(r'^core/', include('core.urls')),
+    url(r'^fertilizer.html', views.index),
     url(r'^admin/', include(admin.site.urls)),
 )

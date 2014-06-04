@@ -8,6 +8,8 @@ import datetime
 import hypchat
 
 hc = hypchat.HypChat('iWtfWzxBZBgla9Q5nl19WJKTTiZh3nTEoyOIAMfx')
+me = hc.get_user("henry@betterworks.com")
+room = hc.get_room('Fertilizer Testing Room')
 
 def index(request):
   return render(request, 'index.html')
@@ -22,14 +24,12 @@ def list(request):
 
 def hit(request, location_url):
   location = get_object_or_404(Location, url=location_url)
-
-  me = hc.get_user("henry@betterworks.com")
   #me.message('(poo) - ' + location.name)
 
   location.hit_count += 1
   location.save()
   data = {'location':str(location), 'hits':str(location.hit_count)}
-
+  room.message("The "+str(location)+" tree has been fertilized "+ " (poo)", "green", True, "text")
   return render(request, 'landing.html', data)
 
 @csrf_exempt
@@ -37,4 +37,4 @@ def create_location(request):
   if request.method == 'POST':
     location = Location(name=request.POST['Location'])
     location.save()
-    return redirect('/fertilizer/templates/creating.html')
+    return redirect('fertilizer/landing.html')

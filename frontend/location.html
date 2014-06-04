@@ -1,36 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Forest</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
   <script src="scripts/libs/qrcode/lib/qrcode.min.js"></script>
   <script src="scripts/libs/angular-qr/angular-qr.min.js"></script>
   <script src="scripts/app.js"></script>
+  <!-- Bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 </head>
 <body ng-app="Fertilizer">
   <div ng-controller="Location">
 
     <div ng-if="!selected_location" ng-init="get_locations()">
       <p><b><font size="16"> The Forest</font></b></p>
+      <i> Here are the current trees </i>
       <ul>
         <li ng-repeat="location in locations">
           <a href ng-click="select_location(location)">
             {{location.name}} -  Hits: {{location.hit_count}}
           </a>
+          <img src="images/peachtree.gif">
         </li>
       </ul>
       <form ng-submit="create_location(new_location)" method="post">
         <label>Plant a Tree: <input type="text" ng-model="new_location"/></label>
         <button type="submit">Create</button>
       </form>
-
+      <a href='/fertilizer.html'>Main</a>
     </div>
-
+    <center>
     <div ng-if="selected_location">
-      {{location.url}}
-      {{location.name}}
+    <a href="/fertilizer/location.html"><b>Back To The Forest</b></a>
+      <br />
       <br />
       <qr text="qr_url"></qr>
+      <br />
+      <br />
+      <i> The location of this tree is </i> <b>{{location.name}}</b>
+      <br>
+      <img src="images/peachtree.gif">
+      It has beeen watered <b>{{location.hit_count}}</b> times
+      <br>
+      <br>
+      <a href='/fertilizer.html'>Main</a>
+      {{location.url}}
+    </center>
     </div>
+  <br/>
   </div>
 </body>
 </html>
