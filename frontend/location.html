@@ -9,22 +9,27 @@
   <script src='scripts/libs/lodash/dist/lodash.underscore.min.js'></script>
   <script src='scripts/libs/angular-google-maps/dist/angular-google-maps.min.js'></script>
   <style>
-  .centered {
-  left        : 0;
-  margin-left : auto;
-  margin-right: auto;
-  position    : absolute;
-  right       : 0;
-  text-align  : center;
-  top         : 50%;
-}
 .angular-google-map-container { height: 400px; width: 400px; }
 </style>
 </head>
 
 <body ng-app="fertilizer">
   <div ng-controller="dataController">
-      {{test}}
+      <google-map center="map.center" zoom="map.zoom" draggable="true">
+        <li ng-repeat="location in locations">
+          <marker
+            coords="{latitude: location.lat, longitude: location.lng}"
+             options="{title: 'test', draggable: true}"
+            >
+          <marker-label
+            content="location.name"
+            anchor="30 0"
+            >
+          </marker-label>
+          </marker>
+       </li>
+      </google-map>
+
     <div ng-if="!selected_location" ng-init="get_locations()">
       <form ng-submit="create_location(new_location)" method="post">
         <label>Location Name: <input type="text" ng-model="new_location"/></label>
@@ -32,24 +37,12 @@
       </form>
 
       <ul>
-      <google-map center="map.center" zoom="map.zoom" draggable="true">
-      <li ng-repeat="location in locations">
-      <marker
-      coords="{latitude: 37.42565,longitude: -122.13535}"
-      options="{title: 'test', draggable: true}"
-      >
-        <marker-label
-            content="'{{location.name}}'"
-            anchor="30 0"
-            >
-        </marker-label>
-      </marker>
-      </li>
-      </google-map>
         <li ng-repeat="location in locations">
           <a href ng-click="select_location(location)">
-            {{location.name}} -  Hits: {{location.hit_count}}
+            {{location.name}} <br>
           </a>
+          Latitude: {{location.lat}} Longintude: {{location.lng}} Hits: {{location.hit_count}}
+          <br>
         </li>
       </ul>
     </div>

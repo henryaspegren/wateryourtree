@@ -13,7 +13,7 @@ var fertilizer = angular.module("fertilizer", ['ja.qr', 'google-maps'])
         latitude: 37.42565,
         longitude: -122.13535
       },
-      zoom: 16
+      zoom: 14
     };
 
     $scope.get_locations = function () {
