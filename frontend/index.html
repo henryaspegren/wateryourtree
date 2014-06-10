@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="fertilizer">
 <head>
   <meta charset="utf-8">
   <title>Fertilizer</title>
@@ -7,9 +7,17 @@
   <script src="scripts/libs/angular-route/angular-route.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/controller.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="scripts/libs/qrcode/lib/qrcode.min.js"></script>
+  <script src="scripts/libs/angular-qr/angular-qr.min.js"></script>
+  <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+  <script src='scripts/libs/lodash/dist/lodash.underscore.min.js'></script>
+  <script src='scripts/libs/angular-google-maps/dist/angular-google-maps.min.js'></script>
+  <style>
+  .angular-google-map-container { height: 400px; width: 400px; }
+  </style>
 </head>
 <body>
-  <div ng-view>{{test}}</div>
-
+  <div ng-view></div>
 </body>
 </html>

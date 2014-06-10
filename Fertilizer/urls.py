@@ -11,5 +11,5 @@ urlpatterns = patterns('',
     url(r'^$', views.index),
     url(r'^core/', include('core.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^detail/(?P<location_url>\S+)/$', views.produce_detail_page, name='detail_json'),
+    url(r'^detail/(?P<location_url>\S+)/$', views.detail_json, name='detail_json'),
 )

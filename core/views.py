@@ -16,12 +16,9 @@ def detail_json(request, location_url):
   location = get_object_or_404(Location, url=location_url)
   return render_location(location)
 
-def produce_detail_page(request, location_url):
-  location = get_object_or_404(Location, url=location_url)
-  data = {'name': str(location.name), 'hits':str(location.hit_count), 'lat':str(location.lat),
-  'lng': str(location.lng), 'watered': str(location.last_watered), 'created': str(location.date_created),
-  'url': location.url}
-  return render(request, 'test.html', data)
+def name_json(request, location_name):
+  location = get_object_or_404(Location, url=location_name)
+  return render_location(location)
 
 def list(request):
   locations = Location.objects.order_by('-date_created')

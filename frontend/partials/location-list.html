@@ -1,0 +1,15 @@
+The list will go here
+<google-map center="map.center" zoom="map.zoom"></google-map>
+<div ng-init="get_locations()">
+  <form ng-submit="create_location(new_location)" method="post">
+    <label>Location Name: <input type="text" ng-model="new_location"/></label>
+    <button type="submit">Create</button>
+  </form>
+  <ul>
+    <li ng-repeat="location in locations">
+      <a ng-click="selected_location(location)" href="/fertilizer/index.html#/{{location.url}}">
+          {{location.name}} -  Hits: {{location.hit_count}}
+      </a>
+    </li>
+  </ul>
+</div>
