@@ -1,12 +1,12 @@
 'use strict';
-var fertilizer = angular.module("fertilizer", ['ja.qr']);
+var fertilizerControllers = angular.module("fertilizerControllers", []);
 
-fertilizer.controller('locationsController', function ($scope, $http){
+fertilizerControllers.controller('locationsController', ['$scope', '$routeParams',
+  function ($scope){
     // URL for the QR code to generate
     $scope.test = "data is finally binding";
-    $scope.qr_url = "";
-    $scope.location = "";
-
+    }]);
+/*
     $scope.get_locations = function () {
       $http.get("../core/list")
         .success(function (data, status, headers, config) {
