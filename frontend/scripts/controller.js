@@ -7,10 +7,10 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
     $scope.test = "data is finally binding";
     $scope.map = {
     center: {
-        latitude: 45,
-        longitude: -73
+        latitude: 37.42565,
+        longitude: -122.13535
     },
-    zoom: 8
+    zoom: 15
     };
     $scope.get_locations = function () {
       $http.get("../core/list")
@@ -30,7 +30,7 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
     $scope.create_location = function(name) {
       $http.post("../core/create/", "Location=" + name)
         .success(function (data, status, headers, config) {
-          window.location = "/fertilizer/location.html";
+          window.location = "/fertilizer/index.html";
         });
     };
     $scope.select_location = function(location) {
