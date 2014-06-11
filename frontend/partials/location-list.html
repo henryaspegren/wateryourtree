@@ -1,0 +1,24 @@
+<h1> The Forest </h1>
+<div ng-init="get_locations()">
+<google-map center="map.center" zoom="map.zoom" draggable="true">
+<li ng-repeat="location in locations">
+  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
+    <marker-label content="location.name" anchor="10 0">
+    </marker-label>
+  </marker>
+</li>
+</google-map>
+  <form ng-submit="create_location(new_location)" method="post">
+    <label>Location Name: <input type="text" ng-model="new_location"/></label>
+    <button type="submit">Create</button>
+  </form>
+  <ul>
+    <li ng-repeat="location in locations">
+      <a href="/fertilizer/index.html#/{{location.url}}">
+          {{location.name}} -  Hits: {{location.hit_count}}
+      </a> <br>
+      Last Fertilized: {{location.last_watered}}
+    </li>
+  </ul>
+</div>
+<a href="http://www.hipchat.com/gX28jfHvE"> Join the conversation</a>

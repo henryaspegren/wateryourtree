@@ -1,18 +1,18 @@
-var fertilizer = angular.module("fertilizer", ['ngRoute','ja.qr', 'locationsController']);
+var fertilizer = angular.module("fertilizer", ['ngRoute', 'fertilizerControllers']);
+
 
 fertilizer.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/fertilizer/location', {
-        templateUrl: 'location1.html',
+      when('/', {
+        templateUrl: 'partials/location-list.html',
         controller: 'locationsController'
       }).
-      when('fertilizer/create', {
-        templateUrl: 'create.html'
+      when('/:url', {
+        templateUrl: 'partials/location-detail.html',
         controller: 'locationsController'
       }).
       otherwise({
         redirectTo: '/'
       });
-    });
-}]);
+  }]);

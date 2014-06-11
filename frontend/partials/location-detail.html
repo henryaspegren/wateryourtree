@@ -1,0 +1,19 @@
+View for each tree (in development) <br>
+<div ng-init="get_details(url)">
+<h1> {{data.name}} Tree</h1>
+<body>
+Date Created: {{data.date_created}}
+Fertilized: {{data.hit_count}}
+Last Fertilized: {{data.last_watered}}
+{{data.lat}} {{data.lng}}
+</body><br>
+<qr text="qr_url"></qr>
+<google-map center="map.center" zoom="13" draggable='true'>
+  <marker coords="{'latitude':data.lat, 'longitude':data.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
+    <marker-label content="data.name" anchor="10 0">
+    </marker-label>
+  </marker>
+</google-map>
+</div>
+
+<a href="/fertilizer/index.html#/">Back to the Forest</a>
