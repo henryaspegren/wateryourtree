@@ -23,10 +23,10 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
         });
     };
     $scope.get_details = function(url) {
-      $scope.binding = 'bidning is working'
+      $scope.binding = 'binding is working'
       $http.get("../core/" + url)
         .success(function (data) {
-          $scope.data = data;
+          $scope.location = data;
         });
       $scope.qr_url = document.domain + "/core/hit/" + url
     };

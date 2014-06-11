@@ -1,27 +1,27 @@
-<head><title> The {{data.name}} Tree </title></head>
+<head><title> The {{location.name}} Tree </title></head>
 View for each tree (in development) <br>
 <div ng-init="get_details(url)">
-<h1> {{data.name}} Tree</h1>
+<h1> {{location.name}} Tree</h1>
 <body>
-Date Created: {{data.date_created}}
-Fertilized: {{data.hit_count}}
-Last Fertilized: {{data.last_watered}}
+Date Created: {{location.date_created}}
+Fertilized: {{location.hit_count}}
+Last Fertilized: {{location.last_watered}}
 </body><br>
 <qr text="qr_url"></qr>
 <google-map center="map.center" zoom="13" draggable='true'>
-  <marker coords="{'latitude':data.lat, 'longitude':data.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
-    <marker-label content="data.name" anchor="10 0">
+  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
+    <marker-label content="location.name" anchor="10 0">
     </marker-label>
   </marker>
 </google-map>
 </div>
 
-Current Latitude: {{data.lat}}
+Current Latitude: {{location.lat}}
 <form ng-submit="update_latitude(url,lat)" method="post">
     <label>Latitude: <input type="text" ng-model="lat"/></label>
     <button type="submit">Change</button>
   </form>
-Current Longitude: {{data.lng}}
+Current Longitude: {{location.lng}}
 <form ng-submit="update_longitude(url,lng)" method="post">
     <label>Longitude: <input type="text" ng-model="lng"/></label>
     <button type="submit">Change</button>
