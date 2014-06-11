@@ -25,7 +25,9 @@ def list(request):
   locations = Location.objects.order_by('-date_created')
   return render_locations(locations)
 
+
 def hit(request, location_url):
+  print location_url
   location = get_object_or_404(Location, url=location_url)
   data = {}
   room.topic('Fertilizer Update!')
@@ -40,6 +42,33 @@ def hit(request, location_url):
 @csrf_exempt
 def create_location(request):
   if request.method == 'POST':
-    location = Location(name=request.POST['Location'])
+    print request.POST
+    name = request.POST['Location']
+    print "NAME= " + str(name)
+    if name is None:
+      return HttpResponse(status=400)
+    location = Location(name=name)
     location.save()
-  return HttpResponseRedirect('/')
+  return HttpResponseRedirect('/fertilizer/index.html#/create')
+
+@csrf_exempt
+def update_latitude(request):
+  print request.POST
+  location_url = request.POST['url_link']
+  lat = request.POST['lat_update']
+  print 'URL: '+ location_url + '    LAT: '+ lat
+  location = get_object_or_404(Location, url=location_url)
+  print "found location:" + str(location)
+  location.lat = float(lat)
+  location.save()
+
+@csrf_exempt
+def update_longitude(request):
+  print request.POST
+  location_url = request.POST['url_link']
+  lng = request.POST['lng_update']
+  print 'URL: '+ location_url + '    LNG: '+ lng
+  location = get_object_or_404(Location, url=location_url)
+  print "found location:" + str(location)
+  location.lng = float(lng)
+  location.save()

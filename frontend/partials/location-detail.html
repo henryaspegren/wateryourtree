@@ -1,3 +1,4 @@
+<head><title> The {{data.name}} Tree </title></head>
 View for each tree (in development) <br>
 <div ng-init="get_details(url)">
 <h1> {{data.name}} Tree</h1>
@@ -5,7 +6,6 @@ View for each tree (in development) <br>
 Date Created: {{data.date_created}}
 Fertilized: {{data.hit_count}}
 Last Fertilized: {{data.last_watered}}
-{{data.lat}} {{data.lng}}
 </body><br>
 <qr text="qr_url"></qr>
 <google-map center="map.center" zoom="13" draggable='true'>
@@ -15,5 +15,16 @@ Last Fertilized: {{data.last_watered}}
   </marker>
 </google-map>
 </div>
+
+Current Latitude: {{data.lat}}
+<form ng-submit="update_latitude(url,lat)" method="post">
+    <label>Latitude: <input type="text" ng-model="lat"/></label>
+    <button type="submit">Change</button>
+  </form>
+Current Longitude: {{data.lng}}
+<form ng-submit="update_longitude(url,lng)" method="post">
+    <label>Longitude: <input type="text" ng-model="lng"/></label>
+    <button type="submit">Change</button>
+  </form>
 
 <a href="/fertilizer/index.html#/">Back to the Forest</a>

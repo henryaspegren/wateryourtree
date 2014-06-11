@@ -8,8 +8,12 @@ fertilizer.config(['$routeProvider',
         templateUrl: 'partials/location-list.html',
         controller: 'locationsController'
       }).
-      when('/:url', {
+      when('/tree/:url', {
         templateUrl: 'partials/location-detail.html',
+        controller: 'locationsController'
+      }).
+      when('/create', {
+        templateUrl: 'partials/location-create.html',
         controller: 'locationsController'
       }).
       otherwise({
