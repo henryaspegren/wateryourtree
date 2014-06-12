@@ -1,1 +1,2 @@
-web: gunicorn Fertilizer.wsgi
+web: gunicorn Fertilizer.wsgi  
+
