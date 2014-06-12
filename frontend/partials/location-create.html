@@ -1,3 +1,30 @@
-<head><title> Edit {{data.name}} Tree </title></head>
-Thank you for planting a tree (in development) <br>
-{{tree}}
+<head><title> New {{name}} Tree </title></head>
+Thank you for creating a tree! (in development) <br>
+<div ng-init="get_details_name(name)">
+<h1> {{location.name}} Tree</h1>
+<body>
+Your tree is has been planted at {{location.name}}
+</body><br>
+<google-map center="map.center" zoom="13" draggable='true'>
+  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
+    <marker-label content="location.name" anchor="10 0">
+    </marker-label>
+  </marker>
+</google-map>
+</div>
+<h2>Paste this QR Code</h2>
+<qr text="qr_url+location.url"></qr>
+<h3>Edit your Tree's Location</h3>
+Default Latitude: {{location.lat}}
+<form ng-submit="update_latitude(url,lat)" method="post">
+    <label>Latitude: <input type="text" ng-model="lat"/></label>
+    <button type="submit">Change</button>
+  </form>
+Default Longitude: {{location.lng}}
+<form ng-submit="update_longitude(url,lng)" method="post">
+    <label>Longitude: <input type="text" ng-model="lng"/></label>
+    <button type="submit">Change</button>
+  </form>
+<br>
+<br>
+<a href="/fertilizer/index.html#/">Back to the Forest</a>

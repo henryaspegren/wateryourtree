@@ -8,6 +8,7 @@ fertilizerControllers.config(['$httpProvider', function($httpProvider) {
 fertilizerControllers.controller('locationsController', ['$scope', '$routeParams', '$http',
   function($scope, $routeParams, $http) {
     $scope.url = $routeParams.url;
+    $scope.name = $routeParams.name;
     $scope.test = "data is finally binding";
     $scope.map = {
     center: {
@@ -30,6 +31,14 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
         });
       $scope.qr_url = document.domain + "/core/hit/" + url
     };
+    $scope.get_details_name = function(name) {
+      $scope.binding = 'binding is working'
+      $http.get("../core/name/" + name)
+        .success(function (data) {
+          $scope.location = data;
+        });
+      $scope.qr_url = document.domain + "/core/hit/"
+    };
     $scope.update_latitude=function(url, lat) {
       $http.post("../core/updatelatitude/","url_link="+url+";lat_update="+lat)
     };
@@ -41,8 +50,7 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
     $scope.create_location = function(name) {
       $http.post("../core/create/", "Location=" +name)
        .success(function (data, status, headers, config) {
-          window.location = '/fertilizer/index.html#/create';
-          $scope.tree = name
+          window.location = '/fertilizer/index.html#/create/'+name;
         });
      };
     $scope.select_location = function(location) {

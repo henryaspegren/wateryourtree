@@ -18,7 +18,7 @@ def detail_json(request, location_url):
   return render_location(location)
 
 def name_json(request, location_name):
-  location = get_object_or_404(Location, url=location_name)
+  location = get_object_or_404(Location, name=location_name)
   return render_location(location)
 
 def list(request):
