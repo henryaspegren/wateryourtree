@@ -1,0 +1,28 @@
+<head>
+<title> The {{location.name}} Tree </title>
+  <style>
+  .centered {
+  left        : 0;
+  margin-left : auto;
+  margin-right: auto;
+  position    : absolute;
+  right       : 0;
+  text-align  : center;
+  top         : 0%;
+}
+  </style>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  <title> Print {{location.name}}</title>
+</head>
+<div class="centered" ng-init="get_details(url)">
+<img src='/fertilizer/images/peachtree.gif'><br><br><br>
+<qr text="qr_url+location.url"></qr>
+<br>
+<br>
+<br>
+<br>
+<br>
+Print view for {{location.name}}<br>
+<a href="/fertilizer/index.html"> Back to the Forest </a>
+</div>

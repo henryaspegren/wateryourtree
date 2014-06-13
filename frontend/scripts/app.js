@@ -12,6 +12,10 @@ fertilizer.config(['$routeProvider',
         templateUrl: 'partials/location-detail.html',
         controller: 'locationsController'
       }).
+      when('/print/:url', {
+        templateUrl: 'partials/location-print.html',
+        controller: 'locationsController'
+      }).
       when('/create/:name', {
         templateUrl: 'partials/location-create.html',
         controller: 'locationsController'

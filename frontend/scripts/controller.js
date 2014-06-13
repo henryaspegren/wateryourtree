@@ -32,8 +32,9 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
       $scope.qr_url = document.domain + "/core/hit/" + url
     };
     $scope.get_details_name = function(name) {
+      $scope.name = name
       $scope.binding = 'binding is working'
-      $http.get("../core/name/" + name)
+      $http.get("../core/name/" + name + '/')
         .success(function (data) {
           $scope.location = data;
         });
@@ -48,9 +49,9 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
     };
 
     $scope.create_location = function(name) {
-      $http.post("../core/create/", "Location=" +name)
+      $http.post("../core/create/", "Location=" +String(name))
        .success(function (data, status, headers, config) {
-          window.location = '/fertilizer/index.html#/create/'+name;
+          window.location = '/fertilizer/index.html#/create/'+String(name);
         });
      };
     $scope.select_location = function(location) {

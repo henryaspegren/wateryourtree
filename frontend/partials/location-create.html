@@ -1,20 +1,34 @@
-<head><title> New {{name}} Tree </title></head>
-Thank you for creating a tree! (in development) <br>
-<div ng-init="get_details_name(name)">
-<h1> {{location.name}} Tree</h1>
+<head>
+<title> The {{location.name}} Tree </title>
+  <style>
+  .centered {
+  left        : 0;
+  margin-left : auto;
+  margin-right: auto;
+  position    : absolute;
+  right       : 0;
+  text-align  : center;
+  top         : 0%;
+}
+  </style>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  <title> New {{name}} Tree </title>
+  </head>
+<div class="centered" ng-init="get_details_name(name)">
+  <h1> Thank you for planting a tree </h1>
 <body>
-Your tree is has been planted at {{location.name}}
+Your tree is has been planted at {{location.name}}. See the information is listed below.
 </body><br>
-<google-map center="map.center" zoom="13" draggable='true'>
-  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
-    <marker-label content="location.name" anchor="10 0">
-    </marker-label>
-  </marker>
-</google-map>
-</div>
-<h2>Paste this QR Code</h2>
+
+<h2>Enter the {{location.name}} Tree Information</h2>
+<body>
+  <b>Location:</b> {{location.name}}<br>
+  <b>Date Created:</b> {{location.date_created}} <br>
+  <b> QR Code:</b><br>
 <qr text="qr_url+location.url"></qr>
-<h3>Edit your Tree's Location</h3>
+</body>
+<h3>Edit your Tree's Position</h3>
 Default Latitude: {{location.lat}}
 <form ng-submit="update_latitude(url,lat)" method="post">
     <label>Latitude: <input type="text" ng-model="lat"/></label>
@@ -26,5 +40,9 @@ Default Longitude: {{location.lng}}
     <button type="submit">Change</button>
   </form>
 <br>
+<h4>Print this page out and paste it</h4>
+<a href="/fertilizer/index.html#/print/{{location.url}}">Print View</a>
+<br>
 <br>
 <a href="/fertilizer/index.html#/">Back to the Forest</a>
+</div>
