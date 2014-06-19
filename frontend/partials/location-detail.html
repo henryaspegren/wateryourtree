@@ -5,10 +5,21 @@
   left        : 0;
   margin-left : auto;
   margin-right: auto;
-  position    : absolute;
+  position    : relative;
   right       : 0;
   text-align  : center;
   top         : 0%;
+}
+.angular-google-map-container {
+  height: 400px;
+  width: 400px;
+  left        : 0;
+  margin-left : auto;
+  margin-right: auto;
+  position    : relative;
+  right       : 0;
+  text-align  : center;
+  top         : 10%;
 }
   </style>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -36,6 +47,12 @@
     <label>Longitude: <input type="text" ng-model="lng"/></label>
     <button type="submit">Change</button>
   </form>
+<google-map center="map.center" zoom="2" draggable="true">
+  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'" options="{'title':'test'}">
+  <marker-label content="'<font size=2 color=red>Tree Location</font>'" anchor="20 0" style="{'color':'#006600'}" ng-init="get_details(url)">
+    </marker-label>
+  </marker>
+</google-map>
 <a href="/fertilizer/index.html#/print/{{location.url}}">Print Tree</a> <br><br><br>
 <a href="/fertilizer/index.html#/">Back to the Forest</a> <br>
 </div>
