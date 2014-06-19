@@ -1,48 +1,27 @@
-# bower-angular
+# AngularJS (Unstable)
 
-This repo is for distribution on `bower`. The source for this module is in the
-[main AngularJS repo](https://github.com/angular/angular.js).
-Please file issues and pull requests against that repo.
+[Bower](https://github.com/bower/bower) package for [AngularJS](http://angularjs.org/). This project _makes makes no modifications_ to the stock AngularJS build.
 
-## Install
+This branch contains the exploded [`angular-1.2.0-rc.3.zip`](http://code.angularjs.org/1.2.0-rc.3/angular-1.2.0-rc.3.zip) archive.
 
-Install with `bower`:
+## Usage
 
-```shell
-bower install angular
+To avoid conflicts with the official AngularJS bowser package, this package will remain unregistered. To use it, add the following to your Bower dependencies.
+
+```json
+{
+  "dependencies" : {
+    "angular" : "PatternConsulting/bower-angular#v1.2.0-rc.3"
+  }
+}
 ```
 
-Add a `<script>` to your `index.html`:
+**Note that _v1.2.0-rc.3_ refers to the tag**, which corresponds to the AngularJS release. Visit the [_tags_](https://github.com/PatternConsulting/bower-angular/tags) list to see available versions, and [usage notes on Bower dependencies](https://github.com/bower/bower#usage) for details.
 
-```html
-<script src="/bower_components/angular/angular.js"></script>
-```
+## Branches
 
-## Documentation
+There is no `master` branch; only [`stable`](https://github.com/PatternConsulting/bower-angular/tree/stable) and [`unstable`](https://github.com/PatternConsulting/bower-angular/tree/unstable) branches&mdash;which track with the respective AngularJS branches.
 
-Documentation is available on the
-[AngularJS docs site](http://docs.angularjs.org/).
+## Rationale
 
-## License
-
-The MIT License
-
-Copyright (c) 2010-2012 Google, Inc. http://angularjs.org
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+This is package is slightly duplicative with [bower-angular](https://github.com/angular/bower-angular), but intends to maintain packages for both the stable and unstable AngularJS branches.

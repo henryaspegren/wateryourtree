@@ -1,5 +1,5 @@
 'use strict';
-var fertilizerControllers = angular.module("fertilizerControllers", ['ja.qr', 'google-maps', 'flash']);
+var fertilizerControllers = angular.module("fertilizerControllers", ['ja.qr', 'google-maps', 'flash', 'ngAnimate']);
 
 fertilizerControllers.config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

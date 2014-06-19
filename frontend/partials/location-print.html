@@ -5,10 +5,34 @@
   left        : 0;
   margin-left : auto;
   margin-right: auto;
-  position    : absolute;
+  position    : relative;
   right       : 0;
   text-align  : center;
   top         : 0%;
+
+}
+.sample-show-hide {
+  padding:10px;
+  border:1px solid black;
+  background:white;
+}
+
+.sample-show-hide.ng-hide-add, .sample-show-hide.ng-hide-remove {
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
+}
+
+.sample-show-hide.ng-hide-add.ng-hide-add-active,
+.sample-show-hide.ng-hide-remove {
+  opacity:0;
+}
+
+.sample-show-hide.ng-hide-add,
+.sample-show-hide.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
 }
   </style>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -23,6 +47,14 @@
 <br>
 <br>
 <br>
+<div ng-init="checked=true">
+  <label>
+    <input type="checkbox" ng-model="checked" style="float:left; margin-right:10px;"> View Details
+  </label>
+  <div class="check-element sample-show-hide" ng-show="checked" style="clear:both;">
 Print view for {{location.name}}<br>
-<a href="/fertilizer/index.html"> Back to the Forest </a>
+<a href="/fertilizer/index.html#/">Back to the Forest</a> |
+<a href="http://www.hipchat.com/gX28jfHvE"> Join the conversation</a> | <a href="/">Main</a>
+  </div>
+</div>
 </div>

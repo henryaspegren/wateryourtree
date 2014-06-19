@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
   </head>
+<a href="/fertilizer/index.html#/">Back to the Forest</a> |
+<a href="http://www.hipchat.com/gX28jfHvE"> Join the conversation</a> | <a href="/">Main</a>
 <div ng-init="get_details(url)" class="centered">
 <h1> {{location.name}} Tree</h1>
 <big>QR Code</big><br><br>
@@ -47,12 +49,11 @@
     <label>Longitude: <input type="text" ng-model="lng"/></label>
     <button type="submit">Change</button>
   </form>
-<google-map center="map.center" zoom="2" draggable="true">
-  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'" options="{'title':'test'}">
-  <marker-label content="'<font size=2 color=red>Tree Location</font>'" anchor="20 0" style="{'color':'#006600'}" ng-init="get_details(url)">
+<google-map center="map.center" zoom="2" draggable='true'>
+  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'" options="{'title':'Drag your tree'}" options="{'draggable':'true'}">
+  <marker-label content="'<font size=2 color=red>Tree Location</font>'" anchor="20 0" style="{'color':'#006600'}">
     </marker-label>
   </marker>
 </google-map>
 <a href="/fertilizer/index.html#/print/{{location.url}}">Print Tree</a> <br><br><br>
-<a href="/fertilizer/index.html#/">Back to the Forest</a> <br>
 </div>

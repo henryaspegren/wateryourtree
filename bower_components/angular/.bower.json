@@ -1,16 +1,15 @@
 {
-  "name": "angular",
-  "version": "1.2.16",
+  "name": "AngularJS",
   "main": "./angular.js",
   "dependencies": {},
-  "homepage": "https://github.com/angular/bower-angular",
-  "_release": "1.2.16",
+  "homepage": "https://github.com/PatternConsulting/bower-angular",
+  "_release": "06861bda9f",
   "_resolution": {
-    "type": "version",
-    "tag": "v1.2.16",
-    "commit": "7ae38b4a0cfced157e3486a0d6e2d299601723bb"
+    "type": "branch",
+    "branch": "unstable",
+    "commit": "06861bda9f004758dd8e5e954da4ed13741fd49c"
   },
-  "_source": "git://github.com/angular/bower-angular.git",
-  "_target": "1.2.16",
-  "_originalSource": "angular"
+  "_source": "git://github.com/PatternConsulting/bower-angular.git",
+  "_target": "unstable",
+  "_originalSource": "PatternConsulting/bower-angular"
 }
