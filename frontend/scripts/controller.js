@@ -1,12 +1,12 @@
 'use strict';
-var fertilizerControllers = angular.module("fertilizerControllers", ['ja.qr', 'google-maps']);
+var fertilizerControllers = angular.module("fertilizerControllers", ['ja.qr', 'google-maps', 'flash']);
 
 fertilizerControllers.config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
   }])
 
-fertilizerControllers.controller('locationsController', ['$scope', '$routeParams', '$http',
-  function($scope, $routeParams, $http) {
+fertilizerControllers.controller('locationsController', ['$scope', '$routeParams', '$http', 'flash',
+  function($scope, $routeParams, $http, flash) {
     $scope.url = $routeParams.url;
     $scope.name = $routeParams.name;
     $scope.test = "data is finally binding";
@@ -15,7 +15,7 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
         latitude: 37.42565,
         longitude: -122.13535
     },
-    zoom: 15
+    zoom: 10
     };
     $scope.get_locations = function () {
       $http.get("../core/list")
@@ -41,11 +41,15 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
       $scope.qr_url = document.domain + "/core/hit/"
     };
     $scope.update_latitude=function(url, lat) {
-      $http.post("../core/updatelatitude/","url_link="+url+";lat_update="+lat)
+      $http.post("../core/updatelatitude/","url_link="+url+";lat_update="+lat);
+      var flash_message = 'Latitude Changed To: '+String(lat);
+      flash(flash_message);
     };
 
     $scope.update_longitude=function(url,lng) {
-      $http.post("../core/updatelongitude/", "url_link="+url+";lng_update="+lng)
+      $http.post("../core/updatelongitude/", "url_link="+url+";lng_update="+lng);
+      var flash_message = 'Longitude Changed To '+String(lng);
+      flash(flash_message);
     };
 
     $scope.create_location = function(name) {
@@ -54,6 +58,11 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
           window.location = '/fertilizer/index.html#/create/'+String(name);
         });
      };
+
+    $scope.change_window = function(url){
+      window.location = '/fertilizer/index.html#/tree/'+String(url)
+    };
+
     $scope.select_location = function(location) {
       $scope.location = location;
       $scope.qr_url = document.domain + "/core/hit/" + $scope.location.url;

@@ -30,7 +30,6 @@ def list(request):
 def hit(request, location_url):
   print location_url
   location = get_object_or_404(Location, url=location_url)
-  data = {}
   room.topic('Fertilizer Update!')
   room.message('The '+ str(location)+' tree has been fertilized (poo)', 'green', True, 'text')
   location.last_watered = datetime.datetime.now()

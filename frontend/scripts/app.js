@@ -5,6 +5,10 @@ fertilizer.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/', {
+        templateUrl: 'partials/location-map.html',
+        controller: 'locationsController'
+      }).
+      when('/list', {
         templateUrl: 'partials/location-list.html',
         controller: 'locationsController'
       }).

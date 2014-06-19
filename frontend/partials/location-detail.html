@@ -1,17 +1,6 @@
 <head>
 <title> The {{location.name}} Tree </title>
   <style>
-  .angular-google-map-container {
-  height: 400px;
-  width: 400px;
-  left        : 0;
-  margin-left : auto;
-  margin-right: auto;
-  position    : absolute;
-  right       : 0;
-  text-align  : left;
-  top         : 40%;
-}
   .centered {
   left        : 0;
   margin-left : auto;
@@ -30,15 +19,6 @@
 <big>QR Code</big><br><br>
 <qr text="qr_url"></qr>
 
-</div>
-<google-map center="map.center" zoom="13" draggable='true' ng-init="get_details(url)">
-  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
-    <marker-label content="location.name" anchor="10 0">
-    </marker-label>
-  </marker>
-</google-map>
-
-<div>
 <h2> Tree Information </h2>
 <img src='/fertilizer/images/peachtree.gif'>{{location.name}} <br>
 <b>Location:</b> {{location.name}} <br>
@@ -50,7 +30,8 @@
     <label>Latitude: <input type="text" ng-model="lat"/></label>
     <button type="submit">Change</button>
   </form>
-Current Longitude: {{location.lng}}
+<flash:messages></flash:messages>
+<b>Current Longitude:</b> {{location.lng}}
 <form ng-submit="update_longitude(url,lng)" method="post">
     <label>Longitude: <input type="text" ng-model="lng"/></label>
     <button type="submit">Change</button>

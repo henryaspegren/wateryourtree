@@ -1,8 +1,8 @@
 <head>
   <style>
   .angular-google-map-container {
-  height: 800px;
-  width: 800px;
+  height: 500px;
+  width: 500px;
   left        : 0;
   margin-left : auto;
   margin-right: auto;
@@ -25,18 +25,10 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
   <title> The Forest </title>
   </head>
-<h1> The Forest </h1>
-<div ng-init="get_locations()">
-<google-map center="map.center" zoom="map.zoom" draggable="true">
-<li ng-repeat="location in locations">
-  <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'">
-    <marker-label content="location.name" anchor="10 0">
-    </marker-label>
-  </marker>
-</li>
-</google-map>
+<div ng-init="get_locations()" class="centered">
+<h1> List View </h1>
   <ul>
-    <li ng-repeat="location in locations">
+    <li ng-repeat="location in locations" typ=1>
       <a href="/fertilizer/index.html#/tree/{{location.url}}">
           {{location.name}} -  Hits: {{location.hit_count}}
       </a> <br>
@@ -48,7 +40,8 @@
     <label>Location Name: <input type="text" ng-model="new_location"/></label>
     <button type="submit">Create</button>
   </form>
-</div>
 <a href="http://www.hipchat.com/gX28jfHvE"> Join the conversation</a>
 <br>
 <a href="/">Main</a>
+</div>
+
