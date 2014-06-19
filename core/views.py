@@ -35,9 +35,7 @@ def hit(request, location_url):
   location.last_watered = datetime.datetime.now()
   location.hit_count += 1
   location.save()
-  data = {'location':str(location), 'hits':str(location.hit_count)}
-
-  return render(request, 'landing.html', data)
+  return render(request, 'index.html')
 
 @csrf_exempt
 def create_location(request):

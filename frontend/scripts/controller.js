@@ -67,4 +67,8 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
       $scope.location = location;
       $scope.qr_url = document.domain + "/core/hit/" + $scope.location.url;
     };
+
+    $scope.hit= function(url){
+      $http.get("../core/hit/"+url);
+    };
   }]);
