@@ -35,6 +35,7 @@ def hit(request, location_url, user_name):
   room.message(user_name+' has fertilized the '+str(location)+' tree (poo)', 'green', True, 'text')
   location.last_watered = datetime.datetime.now()
   location.hit_count += 1
+  location.last_watered_name = str(user_name)
   location.save()
   return render(request, 'index.html')
 

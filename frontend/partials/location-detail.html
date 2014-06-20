@@ -33,11 +33,12 @@
 <qr text="qr_url"></qr>
 
 <h2> Tree Information </h2>
+<b><font size=4>Last Watered By:</font></b><font size=5 color='red'> {{location.last_watered_name}}</font><br>
 <img src='/fertilizer/images/peachtree.gif'>{{location.name}} <br>
 <b>Location:</b> {{location.name}} <br>
 <b>Date Created:</b>  {{location.date_created}} <br>
+<b>Date Last Watered:</b> {{location.last_watered}} <br>
 <b>Fertilized:</b> {{location.hit_count}} <br>
-<b>Last Watered:</b> {{location.last_watered}} <br>
 <b>Current Latitude:</b> {{location.lat}}
 <form ng-submit="update_latitude(url,lat)" method="post">
     <label>Latitude: <input type="text" ng-model="lat"/></label>

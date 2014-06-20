@@ -12,6 +12,7 @@ class Location(models.Model):
   lat = models.DecimalField(default=37.42565, decimal_places=11, max_digits=15)
   lng = models.DecimalField(default=-122.13535, decimal_places=11, max_digits=15)
   last_watered = models.DateTimeField('date last watered', default=datetime.datetime.now())
+  last_watered_name = models.CharField(max_length=100, default='Not yet watered')
   date_created = models.DateTimeField('date created', default=datetime.datetime.now())
 
   def __unicode__(self):
@@ -25,6 +26,7 @@ class Location(models.Model):
       'lat': str(self.lat),
       'lng': str(self.lng),
       'date_created': timegm(self.date_created.utctimetuple()),
+      'last_watered_name': str(self.last_watered_name),
       'last_watered': timegm(self.last_watered.utctimetuple())
     }
 
