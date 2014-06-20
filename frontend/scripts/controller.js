@@ -17,6 +17,7 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
     },
     zoom: 10
     };
+    $scope.show =false;
     $scope.get_locations = function () {
       $http.get("../core/list")
         .success(function (data, status, headers, config) {
@@ -68,7 +69,9 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
       $scope.qr_url = document.domain + "/fertilizer/index.html#/tree/hit/" + $scope.location.url;
     };
 
-    $scope.hit= function(url){
-      $http.get("../core/hit/"+url);
+    $scope.hit= function(url,name){
+      $http.get("../core/hit/"+url+'/'+name);
+      $scope.show= true;
     };
+
   }]);

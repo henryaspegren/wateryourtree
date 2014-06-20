@@ -27,11 +27,12 @@ def list(request):
   return render_locations(locations)
 
 
-def hit(request, location_url):
+def hit(request, location_url, user_name):
   print location_url
+  print user_name
   location = get_object_or_404(Location, url=location_url)
   room.topic('Fertilizer Update!')
-  room.message('The '+ str(location)+' tree has been fertilized (poo)', 'green', True, 'text')
+  room.message(user_name+' has fertilized the '+str(location)+' tree (poo)', 'green', True, 'text')
   location.last_watered = datetime.datetime.now()
   location.hit_count += 1
   location.save()

@@ -89,5 +89,6 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'Fertilizer/templates')
 )
 
-# Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
+# UN COMMENT FOR HEROKU DEPLOYMENTS
+# # Parse database configuration from $DATABASE_URL
+# DATABASES['default'] =  dj_database_url.config()

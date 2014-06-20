@@ -11,6 +11,17 @@
   top         : 0%;
 
 }
+.invisible {
+  left        : 0;
+  margin-left : auto;
+  margin-right: auto;
+  position    : relative;
+  right       : 0;
+  text-align  : center;
+  top         : 0%;
+  opacity: 1;
+
+}
 .sample-show-hide.ng-hide-add.ng-hide-add-active,
 .sample-show-hide.ng-hide-remove {
   opacity:0;
@@ -65,33 +76,43 @@ animation-delay: 3.5s;
 -moz-animation-delay: 4.0s;
 animation-delay: 4.0s;
 }
+
+
   </style>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 </head>
 <div class="centered" ng-init="get_details(url)">
-<div class="fade-in four">
-<b><font size=10 color='green'>The {{location.name}} Tree Has Been Watered!</font></b><br>
+<div class="fade-in four" ng-show="show">
+<b><font size=10 color='green'>{{name}} Has Watered the {{location.name}} Tree!</font></b><br>
 </div>
-<div class="fade-in three">
+<div class="fade-in three" ng-show="show">
        <img src='/fertilizer/images/rain.png'>
      </div>
+<div ng-show="!show" class='invisible'>
+<b><font size=10 color='white'>{{name}} Has Watered the {{location.name}} Tree!</font></b><br>
+      <img src='/fertilizer/images/rain.png'>
+</div>
 <img src='/fertilizer/images/peachtree.gif'><br><br><br>
 <br>
 <br>
+<form ng-submit="hit(location.url,name)" method="get">
+    <label>Enter Your Name: <input type="text" ng-model="name"/></label>
+    <button type="submit">Water This Tree</button>
+  </form>
 <br>
 <br>
 <br>
-  <div class="fade-in fourplus" ng-init="hit(url)">
+  <div class="fade-in fourplus" ng-show="show">
     <font size=8>Tree Details</font><br>
   </div>
-  <div class="fade-in five">
+  <div class="fade-in five" ng-show="show">
     <u> Location of this tree:</u><b> {{location.name}} </b> <br>
     <u> Number of times watered:</u><b> {{location.hit_count}} </b><br>
     <u> Last Watered:</u><b> {{location.last_watered}} </b><br>
     <br>
   </div>
-  <div class="fade-in six">
+  <div class="fade-in six" ng-show="show">
 <a href="/fertilizer/index.html#/">Back to the Forest</a> |
 <a href="http://www.hipchat.com/gX28jfHvE"> Join the conversation</a> | <a href="/">Main</a>
   </div>
