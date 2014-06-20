@@ -89,4 +89,5 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'Fertilizer/templates')
 )
 
-
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
