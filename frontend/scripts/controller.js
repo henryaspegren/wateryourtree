@@ -15,7 +15,7 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
         latitude: 37.42565,
         longitude: -122.13535
     },
-    zoom: 10
+    zoom: 14
     };
     $scope.show =false;
     $scope.get_locations = function () {
