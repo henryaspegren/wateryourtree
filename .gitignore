@@ -1,5 +1,5 @@
 *.pyc
 *.DS_Store
 venv
-db.sqlite3
+*.sqlite3
 /Fertilizer/settings.py
