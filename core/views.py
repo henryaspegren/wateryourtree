@@ -4,11 +4,15 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from Fertilizer.utils import render_location, render_locations
 from core.models import Location
+from core.apis.yo import yo_all
+from core.apis.hipchat import message_room
 import datetime
-import hypchat
 
-hc = hypchat.HypChat('iWtfWzxBZBgla9Q5nl19WJKTTiZh3nTEoyOIAMfx')
-room = hc.get_room('Fertilizer Testing Room')
+
+HC_TOKEN = 'iWtfWzxBZBgla9Q5nl19WJKTTiZh3nTEoyOIAMfx'
+HC_ROOM = 'Fertilizer Testing Room'
+YO_TOKEN = '654ae0e2-4e98-aab4-628f-cdd108c59f37'
+
 
 def index(request):
   return render(request, 'index.html')
@@ -31,12 +35,14 @@ def hit(request, location_url, user_name):
   print location_url
   print user_name
   location = get_object_or_404(Location, url=location_url)
-  room.topic('Fertilizer Update!')
-  room.message(user_name+' has fertilized the '+str(location)+' tree (poo)', 'green', True, 'text')
   location.last_watered = datetime.datetime.now()
   location.hit_count += 1
   location.last_watered_name = str(user_name)
   location.save()
+
+  # API Calls
+  message_room(HC_TOKEN, HC_ROOM, user_name, location)
+  yo_all(YO_TOKEN)
   return render(request, 'index.html')
 
 @csrf_exempt

@@ -12,6 +12,10 @@ fertilizer.config(['$routeProvider',
         templateUrl: 'partials/location-list.html',
         controller: 'locationsController'
       }).
+      when('/about/yo', {
+        templateUrl: 'partials/yo-about.html',
+        controller: 'locationsController'
+      }).
       when('/tree/:url', {
         templateUrl: 'partials/location-detail.html',
         controller: 'locationsController'

@@ -25,21 +25,21 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
         });
     };
     $scope.get_details = function(url) {
-      $scope.binding = 'binding is working'
+      $scope.binding = 'binding is working';
       $http.get("../core/" + url)
         .success(function (data) {
           $scope.location = data;
         });
-      $scope.qr_url = document.domain + "/fertilizer/index.html#/tree/hit/" + url
+      $scope.qr_url = document.domain + "/fertilizer/index.html#/tree/hit/" + url;
     };
     $scope.get_details_name = function(name) {
-      $scope.name = name
-      $scope.binding = 'binding is working'
+      $scope.name = name;
+      $scope.binding = 'binding is working';
       $http.get("../core/name/" + name + '/')
         .success(function (data) {
           $scope.location = data;
         });
-      $scope.qr_url = document.domain + "/fertilizer/index.html#/tree/hit/"
+      $scope.qr_url = document.domain + "/fertilizer/index.html#/tree/hit/";
     };
     $scope.update_latitude=function(url, lat) {
       $http.post("../core/updatelatitude/","url_link="+url+";lat_update="+lat);
@@ -61,7 +61,7 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
      };
 
     $scope.change_window = function(url){
-      window.location = '/fertilizer/index.html#/tree/'+String(url)
+      window.location = '/fertilizer/index.html#/tree/'+String(url);
     };
 
     $scope.select_location = function(location) {
