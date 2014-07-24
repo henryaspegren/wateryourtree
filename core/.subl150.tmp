@@ -43,9 +43,8 @@ class Comment(models.Model):
   def to_json(self):
     return {
       'name': self.name,
-      'date': str(self.date),
-      'associated_tree_name': self.associated_tree.name,
-      'associated_tree_url': self.associated_tree.url,
+      'date': timegm(self.last_watered.utctimetuple()),
+      'associated_tree': self.associated_tree,
       'comment': self.comment
     }
 
