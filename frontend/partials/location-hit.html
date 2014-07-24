@@ -76,36 +76,38 @@ animation-delay: 3.0s;
 -moz-animation-delay: 3.5s;
 animation-delay: 3.5s;
 }
-
-
   </style>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 </head>
 <div class="centered" ng-init="get_details(url)">
-<div class="fade-in four" ng-show="show">
-<b><font size=10 color='green'>{{name}} Has Watered the {{location.name}} Tree!</font></b><br>
-</div>
-<div class="fade-in three" ng-show="show">
-       <img src='/fertilizer/images/rain.png'>
-     </div>
-<div ng-show="!show" class='invisible'>
-<b><font size=10 color='white'>{{name}} Has Watered the {{location.name}} Tree!</font></b><br>
-      <img src='/fertilizer/images/rain.png'>
-</div>
-<img src='/fertilizer/images/peachtree.gif'><br><br><br>
-<br>
-<br>
-<form ng-submit="hit(location.url,name)" method="get">
+  <div class="fade-in four" ng-show="show">
+    <b><font size=10 color='green'>{{name}} Has Watered the {{location.name}} Tree!</font></b><br>
+  </div>
+  <div class="fade-in three" ng-show="show">
+    <img src='/fertilizer/images/rain.png'>
+  </div>
+  <div ng-show="!show" class='invisible'>
+    <b><font size=10 color='white'>{{name}} Has Watered the {{location.name}} Tree!</font></b><br>
+    <img src='/fertilizer/images/rain.png'>
+  </div>
+
+  <img src='/fertilizer/images/peachtree.gif'><br><br><br>
+  <br>
+  <br>
+
+  <form ng-submit="hit(location.url,name)" method="get">
     <label>Enter Your Name: <input type="text" ng-model="name"/></label>
     <button type="submit">Water This Tree</button>
   </form>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+
   <div class="fade-in fourplus" ng-show="show">
     <font size=8>Tree Details</font><br>
   </div>
+
   <div class="fade-in five" ng-show="show">
     <u> Last Watered By:</u><b> {{location.last_watered_name}} </b><br>
     <u> Location of this tree:</u><b> {{location.name}} </b> <br>

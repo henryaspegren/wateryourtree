@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'Fertilizer.wsgi.application'
 DATABASES = {'default': dj_database_url.config()}
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# # Local SQL lite
+# Local SQL lite
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',

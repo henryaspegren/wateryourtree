@@ -38,7 +38,7 @@ class Comment(models.Model):
   comment = models.TextField()
 
   def __unicode__(self):
-    return self.name+' '+self.assoicated_tree.name+' '+str(self.date)
+    return self.name+' '+str(self.date)
 
   def to_json(self):
     return {
