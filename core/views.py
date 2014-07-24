@@ -6,7 +6,7 @@ from Fertilizer.utils import render_location, render_locations, render_comments
 from core.models import Location, Comment
 from core.apis.yo import yo_all
 from core.apis.hipchat import message_room
-import datetime
+from django.utils import timezone
 import json
 
 
@@ -38,14 +38,14 @@ def tree_comments(request, location_url):
 
 def hit(request, location_url, user_name):
   location = get_object_or_404(Location, url=location_url)
-  location.last_watered = datetime.datetime.now()
+  location.last_watered = timezone.now()
   location.hit_count += 1
   location.last_watered_name = str(user_name)
   location.save()
 
   # API Calls
-  message_room(HC_TOKEN, HC_ROOM, user_name, location)
-  yo_all(YO_TOKEN)
+  # message_room(HC_TOKEN, HC_ROOM, user_name, location)
+  # yo_all(YO_TOKEN)
   return render(request, 'index.html')
 
 @csrf_exempt

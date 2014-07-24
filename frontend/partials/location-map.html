@@ -34,7 +34,7 @@
     <google-map center="map.center" zoom="map.zoom" draggable="true">
       <marker coords="{'latitude':location.lat, 'longitude':location.lng}" icon="'/fertilizer/images/peachtreesmall.gif'"
         click="change_window(location.url)" options="{'title':location.name}" ng-repeat="location in locations">
-        <marker-label content="'<b><font size=3>'+location.name+'</font></b><br><font size=2 color=red>'+'Last Watered By: '+location.last_watered_name+'</font>'" anchor="100 0" style="{'color':'#006600'}">
+        <marker-label content="'<b><font size=3>'+location.name+'</font></b><br><font size=2 color=red>'+'Last Watered By: '+location.last_watered_name+'</font>'" anchor="50 0" style="{'color':'#006600'}">
         </marker-label>
       </marker>
     </google-map>
