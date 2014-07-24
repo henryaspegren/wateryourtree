@@ -9,7 +9,6 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
   function($scope, $routeParams, $http) {
     $scope.url = $routeParams.url;
     $scope.name = $routeParams.name;
-    $scope.test = "data is finally binding";
     $scope.map = {
     center: {
         latitude: 37.42565,
@@ -17,7 +16,6 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
     },
     zoom: 14
     };
-    $scope.show =false;
     $scope.get_locations = function () {
       $http.get("../core/list")
         .success(function (data, status, headers, config) {
@@ -76,8 +74,7 @@ fertilizerControllers.controller('locationsController', ['$scope', '$routeParams
       $http.post("../core/comment/", json)
         .success(function (data, status, headers, config) {
           $scope.get_comments(url);
-          console.log('updated');
-        })
+        });
     };
 
     $scope.change_window = function(url){
