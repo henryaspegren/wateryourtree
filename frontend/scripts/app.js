@@ -6,31 +6,31 @@ fertilizer.config(['$routeProvider',
     $routeProvider.
       when('/', {
         templateUrl: 'partials/location-map.html',
-        controller: 'locationsController'
+        controller: 'mapController'
       }).
       when('/list', {
         templateUrl: 'partials/location-list.html',
-        controller: 'locationsController'
+        controller: 'listController'
       }).
       when('/about/yo', {
         templateUrl: 'partials/yo-about.html',
-        controller: 'locationsController'
+        controller: ''
       }).
       when('/tree/:url', {
         templateUrl: 'partials/location-detail.html',
-        controller: 'locationsController'
+        controller: 'detailController'
       }).
       when('/tree/hit/:url', {
         templateUrl: 'partials/location-hit.html',
-        controller: 'locationsController'
+        controller: 'hitController'
       }).
       when('/print/:url', {
         templateUrl: 'partials/location-print.html',
-        controller: 'locationsController'
+        controller: 'printController'
       }).
       when('/create/:name', {
         templateUrl: 'partials/location-create.html',
-        controller: 'locationsController'
+        controller: 'createController'
       }).
       otherwise({
         redirectTo: '/'

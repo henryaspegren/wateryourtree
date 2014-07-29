@@ -11,13 +11,13 @@
   top         : 0%;
 
 }
-.sample-show-hide {
+  .sample-show-hide {
   padding:10px;
   border:1px solid black;
   background:white;
 }
 
-.sample-show-hide.ng-hide-add, .sample-show-hide.ng-hide-remove {
+  .sample-show-hide.ng-hide-add, .sample-show-hide.ng-hide-remove {
   -webkit-transition:all linear 0.5s;
   -moz-transition:all linear 0.5s;
   -o-transition:all linear 0.5s;
@@ -25,13 +25,13 @@
   display:block!important;
 }
 
-.sample-show-hide.ng-hide-add.ng-hide-add-active,
-.sample-show-hide.ng-hide-remove {
+  .sample-show-hide.ng-hide-add.ng-hide-add-active,
+  .sample-show-hide.ng-hide-remove {
   opacity:0;
 }
 
-.sample-show-hide.ng-hide-add,
-.sample-show-hide.ng-hide-remove.ng-hide-remove-active {
+  .sample-show-hide.ng-hide-add,
+  .sample-show-hide.ng-hide-remove.ng-hide-remove-active {
   opacity:1;
 }
   </style>
@@ -40,22 +40,22 @@
   <title> Print {{location.name}}</title>
 </head>
 <div class="centered" ng-init="get_details(url)">
-<img src='/fertilizer/images/peachtree.gif'><br><br><b>
-<qr text="qr_url"></qr>
+  <img src='/fertilizer/images/peachtree.gif'><br><br><b>
+  <qr text="qr_url"></qr>
 <br>
 <br>
 <br>
 <br>
 <br>
-<div ng-init="checked=true">
-  <label>
-    <input type="checkbox" ng-model="checked" style="float:left; margin-right:10px;"> View Details
-  </label>
-  <div class="check-element sample-show-hide" ng-show="checked" style="clear:both;">
-Print view for {{location.name}}<br>
-<a href="/fertilizer/index.html#/">Back to the Forest</a> |
-<a href="/fertilizer/index.html#/about/yo">Get YO notifications</a> |
-<a href="http://www.hipchat.com/gX28jfHvE"> Join the conversation</a> | <a href="/">Main</a>
+  <div ng-init="checked=true">
+    <label>
+      <input type="checkbox" ng-model="checked" style="float:left; margin-right:10px;"> View Details
+    </label>
+    <div class="check-element sample-show-hide" ng-show="checked" style="clear:both;">
+      Print view for {{location.name}}<br>
+      <a href="/fertilizer/index.html#/">Back to the Forest</a> |
+      <a href="/fertilizer/index.html#/about/yo">Get YO notifications</a> |
+      <a href="http://www.hipchat.com/gX28jfHvE"> Join the conversation</a> | <a href="/">Main</a>
+    </div>
   </div>
-</div>
 </div>
